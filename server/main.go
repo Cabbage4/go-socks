@@ -26,7 +26,7 @@ var (
 
 func main() {
 	flag.IntVar(&port, "port", 18888, "")
-	flag.BoolVar(&isRequireAuth, "requireAuth", true, "")
+	flag.BoolVar(&isRequireAuth, "requireAuth", false, "")
 	flag.StringVar(&username, "username", "admin", "")
 	flag.StringVar(&password, "password", "admin", "")
 	flag.Parse()

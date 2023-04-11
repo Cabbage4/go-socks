@@ -3,6 +3,10 @@
 * 支持tcp,udp代理
 * 支持ipv6,ipv4,域名代理
 
+# 如何编译？
+```shell
+sh build.sh
+```
 # 如何使用？
 ```shell
 export http_proxy = "socks5://<username>:<password>@<ip>:<port>"
