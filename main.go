@@ -26,11 +26,10 @@ var (
 
 func main() {
 	flag.IntVar(&port, "port", 18888, "")
-	flag.BoolVar(&isRequireAuth, "requireAuth", false, "")
+	flag.BoolVar(&isRequireAuth, "requireAuth", true, "")
 	flag.StringVar(&username, "username", "admin", "")
 	flag.StringVar(&password, "password", "admin", "")
 	flag.Parse()
-	isRequireAuth = true
 
 	ln, err := net.Listen("tcp", fmt.Sprintf(":%d", port))
 	if err != nil {
@@ -262,7 +261,7 @@ func usernamePasswordAuthHandle(cnn net.Conn) error {
 		return err
 	}
 
-	if string(tUsername) != username && string(tPassword) != password {
+	if string(tUsername) != username || string(tPassword) != password {
 		return fmt.Errorf("username or password error")
 	}
 
